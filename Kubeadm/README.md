@@ -4,10 +4,10 @@ This guide outlines the steps needed to set up a Kubernetes cluster using kubead
 
 # Prerequisites
 
-    Ubuntu OS (Xenial or later)
-    sudo privileges
-    Internet access
-    t2.medium instance type or higher
+- Ubuntu OS (Xenial or later)
+- sudo privileges
+- Internet access
+- t2.medium instance type or higher
 
 # AWS Setup
 
@@ -18,7 +18,7 @@ This guide outlines the steps needed to set up a Kubernetes cluster using kubead
 # To do above setup, follow below provided steps
 
 
-# Step 1: Identify or Create a Security Group
+# *Step 1: Identify or Create a Security Group*
 
 1. Log in to the AWS Management Console:
     Go to the EC2 Dashboard.
