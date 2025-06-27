@@ -55,13 +55,13 @@ Install KIND and kubectl using the provided script:
           kubectl cluster-info
 
 # 4. Setting Up the Kubernetes Dashboard
-  
-      Deploy the Dashboard Apply the Kubernetes Dashboard manifest:
+
+  Deploy the Dashboard Apply the Kubernetes Dashboard manifest:
 
           kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml
 
 
-      Create an Admin User Create a dashboard-admin-user.yml file with the following content:
+  Create an Admin User Create a dashboard-admin-user.yml file with the following content:
 
 
         
