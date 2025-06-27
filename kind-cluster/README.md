@@ -2,6 +2,8 @@
 
 # 1. Installing KIND and kubectl
 
+https://kind.sigs.k8s.io/docs/user/quick-start/#installation
+
 Install KIND and kubectl using the provided script:
 
     #!/bin/bash
