@@ -50,7 +50,7 @@ This guide outlines the steps needed to set up a Kubernetes cluster using kubead
 # Step 2: Select the Security Group While Creating Instances
 
 - When launching EC2 instances:
- - Under Configure Security Group, select the existing security group (Kubernetes-Cluster-SG)
+   - Under Configure Security Group, select the existing security group (Kubernetes-Cluster-SG)
 
 **Note: Security group settings can be updated later as needed.**
 
