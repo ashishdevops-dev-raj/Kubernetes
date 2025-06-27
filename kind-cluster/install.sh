@@ -21,4 +21,10 @@ kubectl version --client
 rm -f kubectl
 rm -rf kind
 
-echo "kind & kubectl installation complete."
+#Docker install
+sudo apt-get update
+sudo apt-get install docker.io -y
+sudo usermod -aG docker $USER && newgrp docker
+docker ps
+
+echo "kind,kubectl & docker installation complete."
