@@ -136,3 +136,37 @@ This guide outlines the steps needed to set up a Kubernetes cluster using kubead
 
 **Copy this generated token for next command.**
 
+
+
+# Execute on ALL of your Worker Nodes
+
+1. **Perform pre-flight checks:**
+
+       sudo kubeadm reset pre-flight checks
+
+2. **Paste the join command you got from the master node and append --v=5 at the end:**
+
+       sudo kubeadm join <private-ip-of-control-plane>:6443 --token <token> --discovery-token-ca-cert-hash sha256:<hash> --cri-socket 
+       "unix:///run/containerd/containerd.sock" --v=5
+
+**Note: When pasting the join command from the master node:**
+
+i. **Add sudo at the beginning of the command**
+ii. **Add --v=5 at the end**
+
+**Example format:**
+
+       sudo <paste-join-command-here> --v=5
+
+# Verify Cluster Connection
+
+*On Master Node:*
+
+      kubectl get nodes
+
+# Verify Container Status on Worker Node
+
+     sudo ctr -n k8s.io containers list
+     sudo ctr -n k8s.io taks list
+
+     
