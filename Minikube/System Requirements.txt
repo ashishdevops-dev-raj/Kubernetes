@@ -1,0 +1,5 @@
+Ubuntu 20.04 or newer
+2 CPUs or more
+2GB of free memory
+Virtualization enabled (Intel VT-x or AMD-V)
+Supported drivers: Docker, KVM2, VirtualBox, etc.
