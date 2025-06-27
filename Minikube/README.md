@@ -2,7 +2,7 @@
 
 This guide provides step-by-step instructions for installing Minikube on Ubuntu. Minikube allows you to run a single-node Kubernetes cluster locally for development and testing purposes.
 
-Pre-requisites
+# Pre-requisites
 
   Ubuntu OS
   sudo privileges
