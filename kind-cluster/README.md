@@ -32,6 +32,12 @@ Install KIND and kubectl using the provided script:
 
     echo "kind,kubectl & docker installation complete."
 
+Verify the version
+
+        docker --version
+        kubectl version
+        kind --version 
+
 # 2. Setting Up the KIND Cluster
 
    Create a kind-cluster-config.yaml file:
