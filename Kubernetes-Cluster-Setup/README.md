@@ -131,5 +131,9 @@ sudo apt autoremove -y
 
 ```
 
+![Ubuntu](https://img.shields.io/badge/os-ubuntu-orange)
+![Kubernetes](https://img.shields.io/badge/kubernetes-1.30-blue)
+![Azure](https://img.shields.io/badge/cloud-azure-blue)
+
 
 
