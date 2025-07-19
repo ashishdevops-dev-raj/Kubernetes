@@ -1,33 +1,54 @@
 #!/bin/bash
 
-set -e
+set -e  # Exit immediately if a command exits with a non-zero status
 
-echo "Updating system..."
-sudo apt update -y && sudo apt upgrade -y
+echo "🚀 Starting Minikube installation on Linux..."
 
-echo "Installing dependencies..."
-sudo apt install -y curl wget apt-transport-https ca-certificates gnupg lsb-release
+# Step 1: Install kubectl
+echo "📦 Installing kubectl..."
+sudo apt update
+sudo apt install -y apt-transport-https curl gnupg lsb-release
 
-echo "Installing Docker..."
+sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg \
+  https://packages.cloud.google.com/apt/doc/apt-key.gpg
+
+echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] \
+  https://apt.kubernetes.io/ kubernetes-xenial main" | \
+  sudo tee /etc/apt/sources.list.d/kubernetes.list
+
+sudo apt update
+sudo apt install -y kubectl
+
+# Step 2: Install Docker (VM driver)
+echo "🐳 Installing Docker..."
 sudo apt install -y docker.io
-sudo systemctl enable docker --now
-sudo usermod -aG docker $USER && newgrp docker
+sudo usermod -aG docker $USER
 
-echo "Installing kubectl..."
-curl -LO "https://dl.k8s.io/release/$(curl -Ls https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
-rm kubectl
-kubectl version --client
+# Start and enable Docker
+sudo systemctl enable docker
+sudo systemctl start docker
 
-echo "Installing Minikube..."
+# Step 3: Install Minikube
+echo "⬇️ Downloading Minikube..."
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 sudo install minikube-linux-amd64 /usr/local/bin/minikube
 rm minikube-linux-amd64
-minikube version
 
-echo "Starting Minikube with Docker driver..."
+# Step 4: Start Minikube with Docker driver
+echo "🚀 Starting Minikube with Docker..."
 minikube start --driver=docker
 
-echo "Installation complete!"
-echo "Note: Log out and log back in for Docker group permissions to take effect."
-echo "You can run 'minikube status' and 'kubectl get nodes' to verify setup."
+# Step 5: Test Kubernetes installation
+echo "🔍 Verifying Minikube status..."
+kubectl get nodes
+kubectl get pods -A
+
+# Step 6: Optional - deploy a test app
+echo "📦 Deploying test app..."
+kubectl create deployment hello-minikube --image=k8s.gcr.io/echoserver:1.4
+kubectl expose deployment hello-minikube --type=NodePort --port=8080
+
+echo "🌐 Accessing the test app in browser..."
+minikube service hello-minikube
+
+echo "✅ Minikube setup complete!"
