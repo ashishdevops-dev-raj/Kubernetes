@@ -1,5 +1,19 @@
 # Kubernetes Cluster Setup Guide (Ubuntu)
 
+
+## 📚 Table of Contents
+
+- [Prerequisites](#prerequisites)
+- [Step 1: Prepare Your System](#step-1-prepare-your-system-execute-on-all-nodes)
+- [Step 2: Install Container Runtime](#step-2-install-container-runtime-containerd)
+- [Step 3: Install Kubernetes Components](#step-3-install-kubernetes-components-execute-on-all-nodes)
+- [Step 4: Initialize Control Plane Node](#step-4-initialize-control-plane-node-master-node-only)
+- [Step 5: Install Pod Network](#step-5-install-pod-network-calico-example)
+- [Step 6: Join Worker Nodes](#step-6-join-worker-nodes)
+- [Step 7: Verify Cluster Status](#step-7-verify-cluster-status-control-plane-node)
+- [Optional Cleanup](#optional-cleanup-reset-cluster)
+
+
 ## Prerequisites
 
 - 🖥️ Minimum 2 Ubuntu virtual machines (1 Control Plane node and 1 or more Worker nodes)  
