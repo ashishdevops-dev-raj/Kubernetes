@@ -11,6 +11,7 @@
 - [Step 5: Install Pod Network](#step-5-install-pod-network-calico-example)
 - [Step 6: Join Worker Nodes](#step-6-join-worker-nodes)
 - [Step 7: Verify Cluster Status](#step-7-verify-cluster-status-control-plane-node)
+- [Step 8: Verify Container Status on Worker Node](#Setp-8-Verify-Container-Status-on-Worker-Node)
 - [Optional Cleanup](#optional-cleanup-reset-cluster)
 
 
@@ -134,6 +135,14 @@ kubectl get nodes
 kubectl get pods -A
 
 ```
+
+## Step 8: Verify Container Status on Worker Node
+
+```bash
+sudo ctr -n k8s.io containers list
+
+```
+
 
 ## Optional Cleanup (Reset Cluster)
 
