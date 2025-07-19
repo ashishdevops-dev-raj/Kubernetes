@@ -11,7 +11,7 @@ sudo apt install -y curl wget apt-transport-https ca-certificates gnupg lsb-rele
 echo "🐳 Installing Docker..."
 sudo apt install -y docker.io
 sudo systemctl enable docker --now
-sudo usermod -aG docker $USER
+sudo usermod -aG docker $USER && newgrp docker
 
 echo "💻 Installing kubectl..."
 curl -LO "https://dl.k8s.io/release/$(curl -Ls https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
